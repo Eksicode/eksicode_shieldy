@@ -85,15 +85,15 @@ export class MemberWrapper {
 export class Chat {
   @prop({ required: true, index: true, unique: true })
   id: number
-  @prop({ required: true, enum: Language, default: Language.ENGLISH })
+  @prop({ required: true, enum: Language, default: Language.TURKISH })
   language: Language
-  @prop({ required: true, enum: CaptchaType, default: CaptchaType.DIGITS })
+  @prop({ required: true, enum: CaptchaType, default: CaptchaType.BUTTON })
   captchaType: CaptchaType
   @prop({ required: true, default: 60 })
   timeGiven: number
-  @prop({ required: true, default: false })
-  adminLocked: boolean
   @prop({ required: true, default: true })
+  adminLocked: boolean
+  @prop({ required: true, default: false })
   restrict: boolean
   @prop({ required: true, default: false })
   noChannelLinks: boolean
@@ -125,7 +125,7 @@ export class Chat {
   underAttack: boolean
   @prop({ required: true, default: false })
   noAttack: boolean
-  @prop()
+  @prop({ default: "Bot Değilim" })
   buttonText?: string
   @prop({ required: true, default: false })
   allowInvitingBots: boolean

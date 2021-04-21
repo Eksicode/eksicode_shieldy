@@ -6,13 +6,13 @@ export const promoAdditions = {
       ? 'При поддержке <a href="https://todorant.com/?utm_source=shieldy">Тудуранта</a>'
       : 'При поддержке <a href="https://t.me/golden_borodutch">Золота Бородача</a>',
   en: () =>
-    'Powered by <a href="https://todorant.com/?utm_source=shieldy">Todorant</a>',
+    '',
 }
 
 export const promoAdditionsWithoutHtml = {
   ru: () =>
     isOver10000() ? 'При поддержке Тудуранта' : 'При поддержке Золота Бородача',
-  en: () => 'Powered by Todorant',
+  en: () => '',
 }
 
 export const promoLinkLengths = {

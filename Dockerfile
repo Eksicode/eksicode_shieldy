@@ -12,7 +12,8 @@ RUN apk add --no-cache \
       ca-certificates \
       ttf-freefont \
       nodejs \
-      yarn
+      yarn \
+      git
 
 COPY ./package.json .
 COPY ./yarn.lock .

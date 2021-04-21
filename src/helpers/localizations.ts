@@ -575,7 +575,7 @@ export const localizations = {
     br:
       ', Por favor, mande qualquer mensagem para esse grupo com o tempo limite especificado, caso contrário irei kicka-lo. Obrigado!',
     tr:
-      ', Lütfen, belirtilen süre içerisinde bu gruba herhangi bir mesaj gönderin, aksi takdirde kovulursunuz. Teşekkür ederiz!',
+      ', Ekşicode\'a hoş geldiniz! Lütfen, belirtilen süre içerisinde bu gruba herhangi bir mesaj gönderin, aksi takdirde kovulursunuz. Teşekkür ederiz!',
     es:
       ', por favor, envía cualquier mensaje por este grupo dentro del tiempo especificado, si no, serás expulsado. ¡Gracias!',
     zh: '，请在指定的时间内向该群组发送任何消息，否则您将被踢。谢谢！',
@@ -672,7 +672,7 @@ export const localizations = {
     br:
       ', Por favor, aperte o botão abaixo no tempo limite especificado, caso contrário irei kicka-lo, Obrigado!',
     tr:
-      ', Lütfen, belirtilen süre içinde aşağıdaki düğmeye basın, aksi takdirde kovulacaksınız. Teşekkür ederiz!',
+      ', { ekşiCode }\'a hoş geldiniz! Lütfen, belirtilen süre içinde aşağıdaki düğmeye basın, aksi takdirde kovulacaksınız. Teşekkür ederiz!',
     es:
       ', por favor, presione el botón abajo dentro del tiempo especificado, si no, serás expulsado. ¡Gracias!',
     zh: '，请在指定的时间内按下面的按钮，否则你将被踢。谢谢！',

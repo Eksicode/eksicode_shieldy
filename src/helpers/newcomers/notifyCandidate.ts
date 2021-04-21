@@ -7,7 +7,7 @@ import { strings } from '@helpers/strings'
 import { constructMessageWithEntities } from '@helpers/newcomers/constructMessageWithEntities'
 import { getName, getUsername } from '@helpers/getUsername'
 import { isRuChat } from '@helpers/isRuChat'
-import { promoExceptions, promoAdditions } from '@helpers/promo'
+import { promoExceptions } from '@helpers/promo'
 
 export async function notifyCandidate(
   ctx: Context,
@@ -82,10 +82,9 @@ export async function notifyCandidate(
         message.text,
         message.entities
       )
-      const promoAddition = promoAdditions[isRuChat(chat) ? 'ru' : 'en']()
       message.text = promoExceptions.includes(ctx.chat.id)
         ? `${getUsername(candidate)}\n\n${formattedText}`
-        : `${getUsername(candidate)}\n\n${formattedText}\n${promoAddition}`
+        : `${getUsername(candidate)}\n\n${formattedText}`
       try {
         message.chat = undefined
         const sentMessage = await ctx.telegram.sendCopy(chat.id, message, {
@@ -106,7 +105,6 @@ export async function notifyCandidate(
   } else {
     extra = extra.HTML(true)
     if (image) {
-      const promoAddition = promoAdditions[isRuChat(chat) ? 'ru' : 'en']()
       return ctx.replyWithPhoto({ source: image.png } as any, {
         caption: promoExceptions.includes(ctx.chat.id)
           ? `<a href="tg://user?id=${candidate.id}">${getUsername(
@@ -120,34 +118,21 @@ export async function notifyCandidate(
             )}</a>${warningMessage} (${chat.timeGiven} ${strings(
               chat,
               'seconds'
-            )})\n${promoAddition}`,
+            )})`,
         parse_mode: 'HTML',
       })
     } else {
-      const promoAddition = promoAdditions[isRuChat(chat) ? 'ru' : 'en']()
       return ctx.replyWithMarkdown(
-        promoExceptions.includes(ctx.chat.id)
-          ? `${
-              chat.captchaType === CaptchaType.DIGITS
-                ? `(${equation.question}) `
-                : ''
-            }<a href="tg://user?id=${candidate.id}">${getUsername(
-              candidate
-            )}</a>${warningMessage} (${chat.timeGiven} ${strings(
-              chat,
-              'seconds'
-            )})`
-          : `${
-              chat.captchaType === CaptchaType.DIGITS
-                ? `(${equation.question}) `
-                : ''
-            }<a href="tg://user?id=${candidate.id}">${getUsername(
-              candidate
-            )}</a>${warningMessage} (${chat.timeGiven} ${strings(
-              chat,
-              'seconds'
-            )})\n${promoAddition}`,
-        extra
+        `${
+            chat.captchaType === CaptchaType.DIGITS
+              ? `(${equation.question}) `
+              : ''
+          }<a href="tg://user?id=${candidate.id}">${getUsername(
+            candidate
+          )}</a>${warningMessage} (${chat.timeGiven} ${strings(
+            chat,
+            'seconds'
+        )})`, extra
       )
     }
   }
